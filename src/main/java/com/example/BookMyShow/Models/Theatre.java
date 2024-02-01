@@ -10,15 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Data
+@Table(name = "theatres")
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Theatre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private String  theatreId;
+    private int theatreId;
+    @Column(unique = true,nullable = false)
     private String name;
     private String address;
     private int noOfScreens;

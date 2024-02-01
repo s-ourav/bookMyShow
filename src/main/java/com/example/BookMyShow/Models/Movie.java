@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "movie_info")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +23,7 @@ import java.util.List;
 public class Movie {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private String movieId;
+    private int movieId;
 
     @Column(unique = true,nullable = false)
     private String movieName;
@@ -35,9 +36,8 @@ public class Movie {
 
     private LocalDate releaseDate;
     private double  duration;
+    private double rating;
 
     @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL)
     List<Show> showList=new ArrayList<>();
-
-
 }

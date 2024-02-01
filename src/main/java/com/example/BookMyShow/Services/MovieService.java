@@ -12,16 +12,20 @@ public class MovieService {
     @Autowired
     private MovieRep movieRep ;
     public String addMovie(AddMovieReq addMovieReq){
+        String movieName= addMovieReq.getMovieName();
+
+
         Movie movie=Movie.builder()
-                .movieName(addMovieReq.getMovieName())
-                .genre (addMovieReq.getGenre())
-                .language(addMovieReq.getLanguage())
-                .duration(addMovieReq.getDuration())
-                .releaseDate(addMovieReq.getReleaseDate())
+                .movieName(addMovieReq.getMovieName() )
+                .genre (addMovieReq.getGenre() )
+                .rating(addMovieReq.getRating() )
+                .language(addMovieReq.getLanguage() )
+                .duration(addMovieReq.getDuration() )
+                .releaseDate(addMovieReq.getReleaseDate() )
                 .build();
 
         movie=movieRep.save(movie);
-        return "The movie "+movie.getMovieName()+" has been added";
+        return "The movie "+movie.getMovieId()+" has been added";
 
     }
 }

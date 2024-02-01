@@ -14,4 +14,5 @@ public class AddMovieReq {
     private Language language;
     private LocalDate releaseDate;
     private double  duration;
+    private double rating;
 }
