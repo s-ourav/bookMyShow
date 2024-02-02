@@ -1,5 +1,6 @@
 package com.example.BookMyShow.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,5 +22,11 @@ public class Tickets {
 
     @JoinColumn
     @ManyToOne
+    @JsonIgnore
     private Show show;
+
+    @JoinColumn
+    @ManyToOne
+    @JsonIgnore
+    private User user;
 }
